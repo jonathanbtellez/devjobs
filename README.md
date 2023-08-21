@@ -76,3 +76,32 @@ Instalacion
 `composer require laravel/breeze --dev`
 
 `php artisan breeze:install`
+
+
+###  migrations
+
+Create a migration to add field using the  name convention
+
+`
+php artisan make:migration add_rol_to_users_table
+`
+
+
+
+
+
+
+
+
+### Mail service config with google
+
+`
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=465
+MAIL_USERNAME=jonathanbtellez@gmail.com
+MAIL_PASSWORD=vyzwaaqqxldcrggt #https://support.google.com/mail/answer/185833?hl=es-419 generar contraseña con google
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS="hello@example.com"
+MAIL_FROM_NAME="${APP_NAME}"
+`
