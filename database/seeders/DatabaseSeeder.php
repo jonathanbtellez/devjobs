@@ -18,5 +18,9 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        
+        // Given the seeder info to the main  seeder to be apply when we run the sedeers in the terminal
+        $this->call(SalarySeeder::class);
+        $this->call(CategorySeeder::class);
     }
 }
