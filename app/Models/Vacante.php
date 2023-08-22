@@ -19,4 +19,9 @@ class Vacante extends Model
         'image',
         'user_id'
     ];
+
+    // Cast data to a specify format
+    protected $casts = [
+        'deadline' => 'datetime',
+    ];
 }

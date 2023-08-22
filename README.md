@@ -131,3 +131,17 @@ We need call the seeder into DatabaseSeeder to be ruuned
 
 ` $this->call(SalarySeeder::class);`
 `php artisan db:seed`
+
+
+### translate a package
+
+First we need publisc the package
+
+`php artisan vendor:publish --tag=laravel-pagination`
+
+Then get the path give when the package will be published
+
+`vendor/laravel/framework/src/Illuminate/Pagination/resources/views`
+
+Get the place where is the file.blade that render the resourse and find what we want to translate
+`[resources/views/vendor/pagination`
