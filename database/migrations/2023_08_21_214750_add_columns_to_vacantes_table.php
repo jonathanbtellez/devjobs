@@ -30,6 +30,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('vacantes', function (Blueprint $table) {
+            // if you want delete tables relationated you need delete first the foreing keys of the table
+            $table->dropForeign('vacantes_category_id_foreign');
+            $table->dropForeign('vacantes_salary_id_foreign');
+            $table->dropForeign('vacantes_user_id_foreign');
             $table->dropColumn(['title','salary_id','category_id','company','deadline','description','image','released','user_id']);
         });
     }
