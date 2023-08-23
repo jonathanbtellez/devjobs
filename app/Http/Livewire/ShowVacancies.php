@@ -6,7 +6,12 @@ use App\Models\Vacante;
 use Livewire\Component;
 
 class ShowVacancies extends Component
-{
+{   
+    protected $listeners = ['deleteVacancy'];
+    public function deleteVacancy(Vacante $vacancy)
+    {
+        $vacancy->delete();
+    }
     public function render()
     {
         // Get the vacancies registers
