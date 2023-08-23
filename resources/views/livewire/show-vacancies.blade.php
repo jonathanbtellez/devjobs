@@ -6,7 +6,7 @@
                 class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg md:flex md:justify-between md:items-center mb-3">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="space-y-7">
-                        <a href="#" class="text-xl font-bold">
+                        <a href="{{route('vacantes.show', $vacancy) }}" class="text-xl font-bold">
                             {{ $vacancy->title }}
                         </a>
                         <p class="text-sm text-gray-600 dark:text-gray-200 font-bold">{{ $vacancy->company }}</p>

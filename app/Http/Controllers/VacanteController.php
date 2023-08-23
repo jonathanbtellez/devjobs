@@ -19,9 +19,9 @@ class VacanteController extends Controller
         return view('vacantes.create');
     }
 
-    public function show($id)
+    public function show(Vacante $vacancy)
     {
-        return view('vacantes.index');
+        return view('vacantes.show', compact('vacancy'));
     }
   
     public function edit(Vacante $vacancy)

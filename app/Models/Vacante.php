@@ -24,4 +24,14 @@ class Vacante extends Model
     protected $casts = [
         'deadline' => 'datetime',
     ];
+
+    public function Category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function Salary()
+    {
+        return $this->belongsTo(Salary::class);
+    }
 }
