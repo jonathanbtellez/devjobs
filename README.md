@@ -165,3 +165,11 @@ Manage the access or authorizations in your app
 Creating a relationated police with a model
 
 `php artisan make:policy VacantePolicy --model=Vacante`
+
+
+
+### Notifications
+
+Create a notification
+
+``
