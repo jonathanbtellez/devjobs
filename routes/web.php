@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VacanteController;
 use Illuminate\Support\Facades\Route;
@@ -17,14 +18,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 
 // The middleware verify check if the email wae confirmed you need implement this is th router and  user model
-Route::get('/dashboard', [VacanteController::class,'index'])->middleware(['auth', 'verified'])->name('vacantes.index');
+Route::get('/dashboard', [VacanteController::class,'index'])->middleware(['auth', 'verified', 'rol.recruiter'])->name('vacantes.index');
 Route::get('/vacantes/create', [VacanteController::class,'create'])->middleware(['auth', 'verified'])->name('vacantes.create');
 Route::get('/vacantes/{vacancy}/edit', [VacanteController::class,'edit'])->middleware(['auth', 'verified'])->name('vacantes.edit');
 Route::get('/vacantes/{vacancy}', [VacanteController::class,'show'])->name('vacantes.show');
+
+
+
+// *                               NOTIFICACIONES
+Route::get('/notifications', NotificationsController::class)->middleware(['auth', 'verified', 'rol.recruiter'])->name('notifications.index');
 
 
 Route::middleware('auth')->group(function () {

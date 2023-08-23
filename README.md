@@ -172,4 +172,16 @@ Creating a relationated police with a model
 
 Create a notification
 
-``
+`php artisan make:notification NewApply`
+
+Create migration to save the notifications 
+
+`php artisan notifications:table`
+
+
+
+### middleware
+
+create custom middleware
+
+`php artisan make:middleware UserRol`
