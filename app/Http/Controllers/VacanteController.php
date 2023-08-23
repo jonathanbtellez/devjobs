@@ -27,17 +27,11 @@ class VacanteController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Vacante $vacancy)
-    {
+    {   
+        $this->authorize('update',$vacancy);
         return view('vacantes.edit', compact('vacancy'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

@@ -1,8 +1,5 @@
-{{-- In work, do what you enjoy. --}}
-
-{{-- use this attr wire:submit.prevent to send the info --}}
-
-<form class="md:w-1/2 space-y-5" wire:submit.prevent='createVacancy'>
+{{-- If your happiness depends on money, you will never be happy with yourself. --}}
+<form class="md:w-1/2 space-y-5" wire:submit.prevent='editVacancy'>
     <div>
         <x-input-label for="title" :value="__('Titulo vacante')" />
 
@@ -64,20 +61,27 @@
 
     <div>
         <x-input-label for="image" :value="__('Imagen')" />
-        <x-text-input id="image" class="block mt-1 w-full" type="file" wire:model="image" accept="image/*" />
+        <x-text-input id="image" class="block mt-1 w-full" type="file" wire:model="newImage" accept="image/*" />
+        <x-input-error :messages="$errors->get('image')" class="mt-2" />
+        <x-input-error :messages="$errors->get('newImage')" class="mt-2" />
         {{-- Show image preview --}}
         {{-- In livewire we have two way data binding that allow send and receive information --}}
         {{-- 1. Check if there are a image upload --}}
         {{-- 2. With the image upload we hava a method temporaryURL that allow the image in a url while that will be charged --}}
-        @if ($image)
+        @if ($newImage)
             <div class="my-5 w-80 mx-auto">
-                <p>Imagen:</p>
-                <img src="{{ $image->temporaryURL() }}" alt="">
+                <p>Nueva imagen:</p>
+                <img src="{{ $newImage->temporaryURL() }}" alt="">
+            </div>
+        @else
+            <div class="my-5 w-80 mx-auto">
+                <x-input-label for="image" :value="__('Imagen actual')" />
+                <img src="{{ asset('storage/vacancies/') . $image }}" alt="{{ 'Imagen vacante ' . $title }}">
             </div>
         @endif
 
-        <x-input-error :messages="$errors->get('image')" class="mt-2" />
     </div>
+
 
     <div class="flex items-center justify-between mt-4">
         <x-link :href="route('vacantes.index')">
@@ -85,7 +89,7 @@
         </x-link>
 
         <x-primary-button class="ml-4">
-            {{ __('Crear vacante') }}
+            {{ __('Editar vacante') }}
         </x-primary-button>
     </div>
 </form>

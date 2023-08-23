@@ -96,11 +96,11 @@ install
 
 `composer require livewire/livewire`
 
-If livewire is not recognize you can use 
+If livewire is not recognize you can use
 
 `php artisan livewire:publish --assets`
 
-if there are a 404 issues please use 
+if there are a 404 issues please use
 
 `php artisan route:cache`
 
@@ -132,7 +132,6 @@ We need call the seeder into DatabaseSeeder to be ruuned
 ` $this->call(SalarySeeder::class);`
 `php artisan db:seed`
 
-
 ### translate a package
 
 First we need publisc the package
@@ -145,3 +144,24 @@ Then get the path give when the package will be published
 
 Get the place where is the file.blade that render the resourse and find what we want to translate
 `[resources/views/vendor/pagination`
+
+### Show static resouses
+
+Create the symbolic links configured for the application
+
+`php artisan storage:link`
+
+then you can show your local register with expose important information
+
+ex. 
+
+`<img src="{{ asset('storage/vacancies/') . $currentImage }}" alt="{{ 'Imagen vacante ' . $title }}">`
+
+
+### POLICIES
+
+Manage the access or authorizations in your app
+
+Creating a relationated police with a model
+
+`php artisan make:policy VacantePolicy --model=Vacante`
